@@ -21,10 +21,6 @@ objc2 = "0.5.1"
 [target.'cfg(target_os = "windows")'.dependencies]
 winapi = { version = "0.3", features = ["libloaderapi"] }
 
-[dependencies.glfw-sys]
-optional = true
-version = "5.0.0"
-
 [dependencies.image]
 optional = true
 version = "^0.25.1"
@@ -46,11 +42,10 @@ features = ["derive"]
 log = "0.4"
 
 [features]
-all = ["image", "vulkan", "log", "wayland", "raw-window-handle-v0-6"]
-default = ["glfw-sys", "raw-window-handle-v0-6"]
-with-window-handle-v0-5 = ["glfw-sys", "raw-window-handle-v0-5"]
+all = ["image", "vulkan", "log", "raw-window-handle-v0-6"]
+default = ["raw-window-handle-v0-6"]
+with-window-handle-v0-5 = ["raw-window-handle-v0-5"]
 vulkan = ["ash"]
-wayland = ["glfw-sys/wayland"]
 raw-window-handle-v0-6 = ["dep:raw-window-handle-0-6"]
 raw-window-handle-v0-5 = ["dep:raw-window-handle-0-5"]
 serde = ["dep:serde"]
