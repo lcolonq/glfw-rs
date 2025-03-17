@@ -20,7 +20,7 @@ extern "C" {}
 #[cfg(not(feature = "glfw-sys"))]
 // leaving off `kind = static` allows for the specification of a dynamic library if desired
 #[cfg(target_family = "unix")]
-#[link(name = "glfw")]
+#[link(name = "glfw3", kind = "static")]
 extern "C" {}
 
 #[cfg(not(feature = "glfw-sys"))]
