@@ -25,7 +25,7 @@ extern "C" {}
 
 #[cfg(not(feature = "glfw-sys"))]
 #[cfg(target_family = "windows")]
-#[link(name = "glfw3")]
+#[link(name = "glfw3", kind = "static")]
 extern "C" {}
 
 #[cfg(target_os = "windows")]
