@@ -278,7 +278,7 @@ pub mod ffi;
 
 #[derive(Debug)]
 #[repr(transparent)]
-pub struct PWindow(Box<Window>);
+pub struct PWindow(pub Box<Window>);
 
 impl PWindow {
     fn raw_ptr(&mut self) -> *mut Window {
@@ -2437,7 +2437,7 @@ impl<'a, Message: 'static + Send> Iterator for FlushedMessages<'a, Message> {
 /// A struct that wraps a `*GLFWwindow` handle.
 #[derive(Debug)]
 pub struct Window {
-    ptr: *mut ffi::GLFWwindow,
+    pub ptr: *mut ffi::GLFWwindow,
     pub is_shared: bool,
     /// A `Sender` that can be cloned out to child `RenderContext`s.
     drop_sender: Option<Sender<()>>,
